@@ -1,9 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Data\" />
+    <Folder Include="DBScript\" />
+    <Folder Include="DTO\" />
+    <Folder Include="ExecutionHelper\" />
+    <Folder Include="FunctionalServices\" />
+    <Folder Include="IServices\" />
+    <Folder Include="Middleware\" />
+    <Folder Include="Models\" />
+    <Folder Include="Services\" />
+    <Folder Include="StoreProcedure\" />
+  </ItemGroup>
 
 </Project>
