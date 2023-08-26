@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 using App.Metrics.AspNetCore.Tracking;
 using App.Metrics.AspNetCore;
 using App.Metrics.Formatters.Prometheus;
-
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,15 +19,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Host.UseMetricsWebTracking().UseMetrics(options =>
+builder.Host.UseMetricsWebTracking();
+
+builder.Host.UseMetrics(options =>
 {
     options.EndpointOptions = endpointoptong =>
     {
         endpointoptong.MetricsTextEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter();
         endpointoptong.MetricsEndpointOutputFormatter = new MetricsPrometheusProtobufOutputFormatter();
-        endpointoptong.EnvironmentInfoEndpointEnabled = false;
+        endpointoptong.EnvironmentInfoEndpointEnabled = true;
     };
 });
+
+builder.Host.UseMetricsWebTracking();
 
 var app = builder.Build();
 
@@ -42,6 +46,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseMetricsEndpoint();
 
 app.MapControllers();
 
