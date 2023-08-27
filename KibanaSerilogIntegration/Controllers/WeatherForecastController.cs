@@ -17,24 +17,29 @@ namespace KibanaSerilogIntegration.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        [Route("WeatherForecastReport")]
+        public IActionResult WeatherForecastReport()
         {
             try
             {
-                var Res = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-                        {
-                            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                            TemperatureC = Random.Shared.Next(-20, 55),
-                            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-                        }).ToArray();
-
-                return Ok(Res);
+                throw new Exception("Logger Test Exception.");     
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, message: "Something went wrong!");
-                return new StatusCodeResult(500);
+                //return new StatusCodeResult(500);
             }
+
+            _logger.LogInformation("Hello From action.");
+
+            var Res = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            }).ToArray();
+
+            return Ok(Res);
         }
     }
 }
