@@ -22,11 +22,11 @@ namespace KibanaSerilogIntegration.Controllers
         {
             try
             {
-                throw new Exception("Logger Test Exception.");     
+                throw new Exception("Logger Test Exception New Twst.");     
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, message: "Something went wrong!");
+                _logger.LogError(ex, message: "Something went wrong New!");
                 //return new StatusCodeResult(500);
             }
 
