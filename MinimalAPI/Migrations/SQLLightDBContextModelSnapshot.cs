@@ -19,7 +19,7 @@ namespace MinimalAPI.Migrations
 
             modelBuilder.Entity("MinimalAPI.Models.Customer", b =>
                 {
-                    b.Property<Guid>("MyProperty")
+                    b.Property<Guid>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
@@ -38,7 +38,7 @@ namespace MinimalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("MyProperty");
+                    b.HasKey("CustomerId");
 
                     b.ToTable("CustomerInformation");
                 });

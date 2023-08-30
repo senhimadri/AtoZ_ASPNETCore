@@ -1,0 +1,2 @@
+
+scaffold-DbContext "Host=10.209.99.117; Database=PGDB; Username=ibos; Password=ibos@123;" Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir "PostgreSQL_Con/Models" -ContextDir "PostgreSQL_Con" -Context "PostgreSQLDbContext"  -t tst.TblSectionInformation

@@ -11,8 +11,8 @@ using MinimalAPI.Data;
 namespace MinimalAPI.Migrations
 {
     [DbContext(typeof(SQLLightDBContext))]
-    [Migration("20230828095852_DB_ScriptMigrationV1")]
-    partial class DB_ScriptMigrationV1
+    [Migration("20230830013317__DBContextMigration")]
+    partial class _DBContextMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,7 +22,7 @@ namespace MinimalAPI.Migrations
 
             modelBuilder.Entity("MinimalAPI.Models.Customer", b =>
                 {
-                    b.Property<Guid>("MyProperty")
+                    b.Property<Guid>("CustomerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
@@ -41,7 +41,7 @@ namespace MinimalAPI.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("MyProperty");
+                    b.HasKey("CustomerId");
 
                     b.ToTable("CustomerInformation");
                 });

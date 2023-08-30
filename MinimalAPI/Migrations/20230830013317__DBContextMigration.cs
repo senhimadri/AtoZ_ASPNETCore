@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MinimalAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class DB_ScriptMigrationV1 : Migration
+    public partial class _DBContextMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace MinimalAPI.Migrations
                 name: "CustomerInformation",
                 columns: table => new
                 {
-                    MyProperty = table.Column<Guid>(type: "TEXT", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "TEXT", nullable: false),
                     UserName = table.Column<string>(type: "TEXT", nullable: false),
                     FullName = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
@@ -23,7 +23,7 @@ namespace MinimalAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomerInformation", x => x.MyProperty);
+                    table.PrimaryKey("PK_CustomerInformation", x => x.CustomerId);
                 });
         }
 
