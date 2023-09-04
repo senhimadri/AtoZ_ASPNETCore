@@ -1,4 +1,5 @@
 using App.Metrics;
+using App.Metrics.Counter;
 using GrafanIntegration.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +29,9 @@ namespace GrafanIntegration.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             _metrics.Measure.Counter.Increment(MetricsRegistry.CreatedWeatherforcastCounter);
+
+
+
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -61,16 +65,19 @@ namespace GrafanIntegration.Controllers
                 }
                 else
                 {
-                    int AAA = 0;
-                    int BAA = 56;
-                    var Res = (BAA / AAA);
 
-                    IEnumerable<WeatherForecast> weatherForecast = new WeatherForecast[1];
-                    return weatherForecast;
+                    throw new Exception("Test Exception 3");
                 }
             }
-            catch (Exception)
+            catch (Exception Ex) 
             {
+
+                _metrics.Provider.Counter.Instance(new CounterOptions
+                {
+                    Name = "Error_Message",
+                    MeasurementUnit = Unit.Custom(Ex.ToString()),
+                }).Increment();
+
                 throw;
             }
         }
@@ -83,8 +90,6 @@ namespace GrafanIntegration.Controllers
 
             // Inside your error handling code
          
-
-
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

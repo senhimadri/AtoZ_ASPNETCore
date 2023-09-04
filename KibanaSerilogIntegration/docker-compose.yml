@@ -27,10 +27,23 @@ services:
         networks : 
             - elastic
 
+    logstash:
+        image: docker.elastic.co/logstash/logstash:7.15.2
+        container_name: logstash
+        volumes:
+            - ./logstash-config/:/usr/share/logstash/config/
+            - ./logstash-pipeline/:/usr/share/logstash/pipeline/
+        ports:
+            - "5044:5044" # You can expose other ports as needed
+        environment:
+            - XPACK_MONITORING_ENABLED=false # Disable X-Pack monitoring if not needed
+        networks:
+            - elastic
+
 networks:
     elastic:
         driver: bridge
-
+    
 volumes:
     elasticsearch-data:
     

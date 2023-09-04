@@ -3,6 +3,7 @@ using App.Metrics.AspNetCore.Tracking;
 using App.Metrics.AspNetCore;
 using App.Metrics.Formatters.Prometheus;
 using System.Threading.RateLimiting;
+using App.Metrics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,7 +34,15 @@ builder.Host.UseMetrics(options =>
 
 builder.Host.UseMetricsWebTracking();
 
+
+
+
 var app = builder.Build();
+
+
+
+// Configure error handling middleware to increment the error metric
+
 
 
 // Configure the HTTP request pipeline.

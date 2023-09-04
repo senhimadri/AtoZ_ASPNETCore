@@ -14,19 +14,19 @@ builder.Services.AddSignalR();
 #region Advanced Rate Limiting Use Cases In .NET
 //Link: https://www.milanjovanovic.tech/blog/advanced-rate-limiting-use-cases-in-dotnet#rate-limiting-users-by-ip-address
 
-//builder.Services.AddRateLimiter(options =>
-//{
-//    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
 
-//    options.AddPolicy("fixed", httpContext =>
-//        RateLimitPartition.GetFixedWindowLimiter(
-//            partitionKey: httpContext.Connection.RemoteIpAddress?.ToString(),
-//            factory: _ => new FixedWindowRateLimiterOptions
-//            {
-//                PermitLimit = 10,
-//                Window = TimeSpan.FromSeconds(10),
-//            }));
-//});
+    options.AddPolicy("fixed", httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: httpContext.Connection.RemoteIpAddress?.ToString(),
+            factory: _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 10,
+                Window = TimeSpan.FromSeconds(10),
+            }));
+});
 
 //builder.Services.AddRateLimiter(rateLimiterOption =>
 //{
