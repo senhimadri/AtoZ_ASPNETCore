@@ -19,7 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUDWithDifferentDB", "CRUD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiveMQClientDemo", "HiveMQClientDemo\HiveMQClientDemo.csproj", "{5378C0D6-13FF-4290-8CF0-BAAED60A6A54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewareExplanation", "MiddlewareExplanation\MiddlewareExplanation.csproj", "{C0C13024-513D-4669-AC0A-9C9BA5A8C916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewareExplanation", "MiddlewareExplanation\MiddlewareExplanation.csproj", "{C0C13024-513D-4669-AC0A-9C9BA5A8C916}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDocker", "TestDocker\TestDocker.csproj", "{C46B3938-DAEF-47C8-8BA2-A325609A69A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBenchmarking", "CodeBenchmarking\CodeBenchmarking.csproj", "{1D871BAF-F182-4AD8-947E-FB481F5E2115}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationAuthorization", "AuthenticationAuthorization\AuthenticationAuthorization.csproj", "{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,18 @@ Global
 		{C0C13024-513D-4669-AC0A-9C9BA5A8C916}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0C13024-513D-4669-AC0A-9C9BA5A8C916}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0C13024-513D-4669-AC0A-9C9BA5A8C916}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46B3938-DAEF-47C8-8BA2-A325609A69A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46B3938-DAEF-47C8-8BA2-A325609A69A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46B3938-DAEF-47C8-8BA2-A325609A69A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46B3938-DAEF-47C8-8BA2-A325609A69A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D871BAF-F182-4AD8-947E-FB481F5E2115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D871BAF-F182-4AD8-947E-FB481F5E2115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D871BAF-F182-4AD8-947E-FB481F5E2115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D871BAF-F182-4AD8-947E-FB481F5E2115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

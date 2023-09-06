@@ -1,49 +1,51 @@
 version: '3.1'
 
-services: 
-    elasticsearch:
-        container_name: els
-        image: docker.elastic.co/elasticsearch/elasticsearch:8.9.1
-        ports:
-            - 9200:9200
-        volumes:
-            - elasticsearch-data:/usr/share/elasticsearch/data
-        environment: 
-            - xpack.security.enabled=false
-            - discovery.type=single-node
-        networks : 
-            - elastic
+services:
 
-    kibana:
-        container_name: kibana
-        image: docker.elastic.co/kibana/kibana:8.9.1
-        ports:
-            - 5601:5601
-        depends_on:
-            - elasticsearch
-        environment:
-            - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-            - xpack.encryptedSavedObjects.encryptionKey:jujshystgdtjdjuytrjduytrgdhytrhytrmkpoutjduyhg
-        networks : 
-            - elastic
+  elasticsearch:
+   image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+   container_name: elasticsearch
+   ports:
+    - "9200:9200"
+   volumes:
+    - elasticsearch-data:/usr/share/elasticsearch/data
+   environment:
+    - discovery.type=single-node
+    - xpack.security.enabled=false
+    - xpack.monitoring.enabled=true
+    - xpack.watcher.enabled=true
+    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+   networks:
+    - docker-network
 
-    logstash:
-        image: docker.elastic.co/logstash/logstash:7.15.2
-        container_name: logstash
-        volumes:
-            - ./logstash-config/:/usr/share/logstash/config/
-            - ./logstash-pipeline/:/usr/share/logstash/pipeline/
-        ports:
-            - "5044:5044" # You can expose other ports as needed
-        environment:
-            - XPACK_MONITORING_ENABLED=false # Disable X-Pack monitoring if not needed
-        networks:
-            - elastic
+  kibana:
+   image: docker.elastic.co/kibana/kibana:7.2.0
+   container_name: kibana
+   ports:
+    - "5601:5601"
+   depends_on:
+    - elasticsearch
+   environment:
+    - ELASTICSEARCH_HOSTS=${ELASTICSEARCH_URL}
+    - XPACK_MONITORING_ENABLED=true
+   networks:
+    - docker-network
+
+  apmserver:
+    image: docker.elastic.co/apm/apm-server:7.5.2
+    command: --strict.perms=false
+    ports:
+      - 8200:8200
+    environment:
+      - apm-server.host=0.0.0.0
+      - setup.kibana.host=kibana:5601
+      - output.elasticsearch.hosts=["elasticsearch:9200"]
+    networks:
+      - docker-network
 
 networks:
-    elastic:
-        driver: bridge
-    
+  docker-network:
+    driver: bridge
+
 volumes:
-    elasticsearch-data:
-    
+  elasticsearch-data:

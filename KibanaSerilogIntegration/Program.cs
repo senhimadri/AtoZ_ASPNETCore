@@ -2,6 +2,9 @@ using Serilog;
 using Serilog.Exceptions;
 using Serilog.Sinks.Elasticsearch;
 using System.Reflection;
+using Elastic.Apm.AspNetCore;
+using System.Configuration;
+using Elastic.Apm.NetCoreAll;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,7 @@ configureLogging();
 
 builder.Host.UseSerilog();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -29,7 +33,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseAllElasticApm(builder.Configuration);
+
 app.MapControllers();
+
 
 app.Run();
 

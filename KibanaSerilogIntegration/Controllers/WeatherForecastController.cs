@@ -22,11 +22,16 @@ namespace KibanaSerilogIntegration.Controllers
         {
             try
             {
-                throw new Exception("Logger Test Exception New Twst.");     
+                 Task.Delay(12342);
+
+                throw new Exception("Logger Test Exception New Twst   afwtesrhgsdfhsfe. gghghh   jhgfdsasdfgh 1111111111111");     
             }
             catch (Exception ex)
             {
+                
                 _logger.LogError(ex, message: "Something went wrong New!");
+
+                throw;
                 //return new StatusCodeResult(500);
             }
 
@@ -40,6 +45,28 @@ namespace KibanaSerilogIntegration.Controllers
             }).ToArray();
 
             return Ok(Res);
+        }
+
+
+        [HttpGet]
+        [Route("WeatherForecastReport2")]
+        public IActionResult WeatherForecastReport2()
+        {
+            try
+            {
+                Task.Delay(12342);
+
+                throw new Exception("Test Error for New Integration new with Alignment   check For the Best");
+            }
+            catch (Exception ex)
+            {
+
+                //_logger.LogError(ex, message: "Something went wrong New!");
+
+                throw;
+                //return new StatusCodeResult(500);
+            }
+
         }
     }
 }

@@ -26,6 +26,9 @@ builder.Services.AddRateLimiter(options =>
     };
 });
 
+
+// Rate Limiter Algorithm
+
 builder.Services.AddRateLimiter(options =>
 {
     options.RejectionStatusCode = 429;
@@ -37,11 +40,38 @@ builder.Services.AddRateLimiter(options =>
         options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
         options.QueueLimit = 5;
     });
+
+    options.AddSlidingWindowLimiter(policyName: "sliding", options =>
+    {
+        options.PermitLimit = 30;
+        options.Window = TimeSpan.FromSeconds(60);
+        options.SegmentsPerWindow = 2;
+        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        options.QueueLimit = 5;
+    });
+
+    options.AddTokenBucketLimiter(policyName: "token", options =>
+    {
+        options.TokenLimit = 10;
+        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        options.QueueLimit = 5;
+        options.ReplenishmentPeriod = TimeSpan.FromSeconds(10);
+        options.TokensPerPeriod = 2;
+        options.AutoReplenishment = true;
+    });
+
+    options.AddConcurrencyLimiter(policyName: "concurrency", options =>
+    {
+        options.PermitLimit = 30;
+        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        options.QueueLimit = 5;
+    });
 });
 
 var app = builder.Build();
 
 app.UseRateLimiter();
+
 app.MapGet("/counter", () => "Hello World!");
 
 app.Run();
