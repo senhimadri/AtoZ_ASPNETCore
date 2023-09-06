@@ -6,7 +6,7 @@ namespace AuthenticationAuthorization.JWTAuthentication;
 
 public static class AddJWTTokenServicesExtensions
 {
-    public static void  AddJWTTokenServices(IServiceCollection Services, IConfiguration Configuration)
+    public static void  AddJWTTokenServices(this IServiceCollection Services, IConfiguration Configuration)
     {
         // Add JWT Settings
         var bindJWTSettings = new JwtSettings();
@@ -34,6 +34,5 @@ public static class AddJWTTokenServicesExtensions
                 ClockSkew=TimeSpan.FromDays(1)
             };
         });
-
     }
 }
