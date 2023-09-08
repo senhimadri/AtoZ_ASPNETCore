@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.RateLimiting;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.RateLimiting;
 
-namespace MiddlewareExplanation
+namespace MiddlewareExplanation.ServicesExtension
 {
     public static class RateLimitServicesextension
     {
@@ -31,7 +30,6 @@ namespace MiddlewareExplanation
                 };
             });
         }
-        
         // Reate Limiter Algorithm
         public static void AddFixedWindowsRateLimiterServices(this IServiceCollection Services)
         {
