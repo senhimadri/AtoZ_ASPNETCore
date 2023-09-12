@@ -3,7 +3,7 @@ using MiddlewareExplanation.ServicesExtension;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddGlobalRateLimiterServices();
-builder.Services.AddDefaultCorsPolicyServices();
+builder.Services.AddSpecificCorsPolicyServices();
 
 var app = builder.Build();
 
@@ -14,19 +14,20 @@ app.UseRateLimiter();
 //------------------***--------------------------------
 
 
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+
 //------------- Use Cors Policy ------------------------
 
 app.UseCors();
 
-app.UseCors("_speficCorsPolicy");
+//app.UseCors("_speficCorsPolicy");
 
-app.UseCors(options=> options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+//app.UseCors(options=> options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
 //------------------ *** ------------------------------
 
-
-
-
-app.MapGet("/counter", () => "Hello World!");
+app.MapGet("/corscheck", () => "Hello World!").RequireCors("_speficCorsPolicy");
 
 app.Run();
