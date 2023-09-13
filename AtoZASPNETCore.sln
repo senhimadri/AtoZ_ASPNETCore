@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDocker", "TestDocker\Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBenchmarking", "CodeBenchmarking\CodeBenchmarking.csproj", "{1D871BAF-F182-4AD8-947E-FB481F5E2115}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationAuthorization", "AuthenticationAuthorization\AuthenticationAuthorization.csproj", "{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationAuthorization", "AuthenticationAuthorization\AuthenticationAuthorization.csproj", "{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPClient", "HTTPClient\HTTPClient.csproj", "{CC08E393-E1E4-44EE-A5D0-39355AF05876}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DF69559-4DB1-4FA2-82A8-250DF3289CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC08E393-E1E4-44EE-A5D0-39355AF05876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC08E393-E1E4-44EE-A5D0-39355AF05876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC08E393-E1E4-44EE-A5D0-39355AF05876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC08E393-E1E4-44EE-A5D0-39355AF05876}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
