@@ -1,21 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace HTTPClient;
-
-public static class UsersEndpoints
-{
-    public static IEndpointRouteBuilder MapUserEndpoints(this WebApplication app)
-    {
-        app.MapGet("/postapiget", ([FromServices] HTTPClientExample _rx) =>
-        {
-            var AS = _rx.httpExample();
-            return Results.Ok(AS);
-        });
-
-        return app;
-    }
-}
-
+﻿namespace HTTPClient;
 
 public class HTTPClientExample
 {

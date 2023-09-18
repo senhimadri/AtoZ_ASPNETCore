@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationAuthorization
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTTPClient", "HTTPClient\HTTPClient.csproj", "{CC08E393-E1E4-44EE-A5D0-39355AF05876}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentValidationPros", "FluentValidationPros\FluentValidationPros.csproj", "{033ABD1C-2BA2-4D15-86DA-D94F84228570}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{CC08E393-E1E4-44EE-A5D0-39355AF05876}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC08E393-E1E4-44EE-A5D0-39355AF05876}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC08E393-E1E4-44EE-A5D0-39355AF05876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033ABD1C-2BA2-4D15-86DA-D94F84228570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033ABD1C-2BA2-4D15-86DA-D94F84228570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033ABD1C-2BA2-4D15-86DA-D94F84228570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033ABD1C-2BA2-4D15-86DA-D94F84228570}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
