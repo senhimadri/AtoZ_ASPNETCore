@@ -15,7 +15,7 @@ public class StudentValidator: AbstractValidator<StudentDTO>
 {
     public StudentValidator()
     {
-        RuleFor(x => x.Email).EmailAddress();
+        RuleFor(x => x.Email).EmailAddress().WithMessage("Not valied.");
         RuleFor(x => x.Phone).Length(11);
         RuleFor(x=>x.Age).GreaterThanOrEqualTo(18);
     }

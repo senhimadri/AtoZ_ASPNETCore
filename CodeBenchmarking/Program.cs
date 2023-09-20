@@ -1,6 +1,5 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+﻿using BenchmarkDotNet.Running;
+using CodeBenchmarking;
 
-app.MapGet("/", () => "Hello World!");
+var summary = BenchmarkRunner.Run(typeof(BenchmarkLINQPerformance));
 
-app.Run();

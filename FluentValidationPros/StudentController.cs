@@ -16,6 +16,15 @@ public class StudentController : ControllerBase
         _validator = validator;
     }
 
+    [HttpGet]
+    [Route("AddStudent")]
+    public dynamic AddStudent( )
+    {
+        return "Get";
+
+
+    }
+
     [HttpPost]
     [Route("AddStudent")]
     public dynamic AddStudent (StudentDTO studentDTO)
