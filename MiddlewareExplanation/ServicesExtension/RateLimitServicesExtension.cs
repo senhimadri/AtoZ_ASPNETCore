@@ -7,9 +7,9 @@ namespace MiddlewareExplanation.ServicesExtension
     {
 
         // Global Rate Limiter
-        public static void AddGlobalRateLimiterServices(this IServiceCollection Services)
+        public static IServiceCollection AddGlobalRateLimiterServices(this IServiceCollection Services)
         {
-            Services.AddRateLimiter(options =>
+            return Services.AddRateLimiter(options =>
             {
                 options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
                 {
@@ -31,9 +31,9 @@ namespace MiddlewareExplanation.ServicesExtension
             });
         }
         // Reate Limiter Algorithm
-        public static void AddFixedWindowsRateLimiterServices(this IServiceCollection Services)
+        public static IServiceCollection AddFixedWindowsRateLimiterServices(this IServiceCollection Services)
         {
-            Services.AddRateLimiter(options =>
+            return Services.AddRateLimiter(options =>
             {
                 options.RejectionStatusCode = 429;
                 options.AddFixedWindowLimiter(policyName: "fixed", options =>
@@ -48,9 +48,9 @@ namespace MiddlewareExplanation.ServicesExtension
             });
 
         }
-        public static void AddSlidingWindowRateLimiterServices(this IServiceCollection Services)
+        public static IServiceCollection AddSlidingWindowRateLimiterServices(this IServiceCollection Services)
         {
-            Services.AddRateLimiter(options =>
+            return Services.AddRateLimiter(options =>
             {
                 options.RejectionStatusCode = 429;
 
@@ -64,9 +64,9 @@ namespace MiddlewareExplanation.ServicesExtension
                 });
             });
         }
-        public static void AddTokenBucketRateLimiterServices(this IServiceCollection Services)
+        public static IServiceCollection AddTokenBucketRateLimiterServices(this IServiceCollection Services)
         {
-            Services.AddRateLimiter(options =>
+            return Services.AddRateLimiter(options =>
             {
                 options.RejectionStatusCode = 429;
 
@@ -82,9 +82,9 @@ namespace MiddlewareExplanation.ServicesExtension
             });
 
         }
-        public static void AddConcurrencyRateLimiterServices(this IServiceCollection Services)
+        public static IServiceCollection AddConcurrencyRateLimiterServices(this IServiceCollection Services)
         {
-            Services.AddRateLimiter(options =>
+            return Services.AddRateLimiter(options =>
             {
                 options.RejectionStatusCode = 429;
                 options.AddConcurrencyLimiter(policyName: "concurrency", options =>
@@ -94,7 +94,6 @@ namespace MiddlewareExplanation.ServicesExtension
                     options.QueueLimit = 5;
                 });
             });
-
         }
     }
 }
