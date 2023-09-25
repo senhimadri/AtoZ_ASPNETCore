@@ -35,26 +35,27 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
-//========================================= Configure JSON serialization options for an endpoint =======================
 
+// ====================================== Endpoint Extension =======================================
+app.AddUserEndpoints();
+//===========================================***********============================================
+
+
+
+//========================================= Configure JSON serialization options for an endpoint =======================
 var options = new JsonSerializerOptions(JsonSerializerDefaults.Web)
 {
     WriteIndented = true
 };
-
 app.MapGet("/serializationTest", ()=> Results.Json(new Todo { Name="JSON Serilizer Test.",IsComplete=false}, options )).WithOpenApi();
 
 app.MapGet("/serializationTest2", (HttpContext context) =>
     context.Response.WriteAsJsonAsync<Todo>(
         new Todo { Name = "Walk dog", IsComplete = false }, options));
-
-
 //=================================================*******************==================================================
 
 
 //========================================== Use the TypedResults API ===================================================
-
-
 var todItemGroup = app.MapGroup("/todoitems/TypedResults");
 
 todItemGroup.MapGet("/",GetAllTodos);
@@ -111,11 +112,9 @@ static async Task<IResult> DeleteTodo(int id, TodoDb db)
 
     return TypedResults.NotFound();
 }
-
 //============================================*********************=======================================================
 
 //========================================== Use the MapGroup API=========================================================
-
 var todoitemgroup = app.MapGroup("/todoitemsgroup");
 
 todoitemgroup.MapGet("/", async (TodoDb db) =>
