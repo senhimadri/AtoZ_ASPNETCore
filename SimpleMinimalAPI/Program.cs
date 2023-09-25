@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SimpleMinimalAPI;
+using System.Text.Json;
+using Microsoft.AspNetCore.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,46 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddSingleton<CustomerRepository>();
 
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+//==================================Configure JSON serialization options globally ======================================
+//builder.Services.ConfigureHttpJsonOptions(options=>
+//{
+//    options.SerializerOptions.WriteIndented = true;
+//    options.SerializerOptions.IncludeFields = true;
+//});
+//======================================================================================================================
+
+
 var app = builder.Build();
+
+
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+
+app.UseHttpsRedirection();
+//========================================= Configure JSON serialization options for an endpoint =======================
+
+var options = new JsonSerializerOptions(JsonSerializerDefaults.Web)
+{
+    WriteIndented = true
+};
+
+app.MapGet("/serializationTest", ()=> Results.Json(new Todo { Name="JSON Serilizer Test.",IsComplete=false}, options )).WithOpenApi();
+
+app.MapGet("/serializationTest2", (HttpContext context) =>
+    context.Response.WriteAsJsonAsync<Todo>(
+        new Todo { Name = "Walk dog", IsComplete = false }, options));
+
+
+//=================================================*******************==================================================
+
 
 //========================================== Use the TypedResults API ===================================================
 
