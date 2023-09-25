@@ -216,17 +216,6 @@ app.MapGet("/",()=> "Hello World.");
 
 app.MapGet("/users/{userId}/books/{booksId}", (int userId,int bookId)=> $"The UserId is {userId} and the BookId is {bookId }");
 
-
-
-
-
-
-
-
-
-
-
-
 app.MapGet("/customers", ([FromServices] CustomerRepository repo)=>
 {
     var customers = repo.GetAllCustomer();
