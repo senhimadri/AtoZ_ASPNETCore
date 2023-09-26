@@ -17,5 +17,11 @@ public class CustomerOrderValidator: AbstractValidator<CustomerOrder>
 
         // Where and Foreach Rules
         RuleForEach(x => x.Orders).Where(x => x.Total != 0).SetValidator(new OrderListValidator());
+
+        RuleFor(x => x.Orders).Must(x => x.Count() <= 10).WithMessage("No more that 10 order are allowed.")
+            .ForEach(orderRule=>
+            {
+                orderRule.Must(x => x.Total > 0).WithMessage("Orders must have a total of more than 0.");
+            });
     }
 }
