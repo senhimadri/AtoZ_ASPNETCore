@@ -6,6 +6,6 @@ public class PersonValidator: AbstractValidator<Person>
 {
     public PersonValidator()
     {
-        RuleForEach(x=>x.AddressLine).NotNull();
+        RuleForEach(x=>x.AddressLine).NotNull().WithMessage("Address {CollectionIndex} is required.");
     }
 }
