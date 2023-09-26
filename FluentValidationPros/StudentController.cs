@@ -27,22 +27,25 @@ public class StudentController : ControllerBase
 
     [HttpPost]
     [Route("AddStudent")]
-    public dynamic AddStudent (StudentDTO studentDTO)
+    public async Task<IActionResult> AddStudent (StudentDTO studentDTO)
     {
-        var validator = _validator.Validate(studentDTO);
+        var validator = await _validator.ValidateAsync(studentDTO);
+
+
+        //await _validator.ValidateAndThrowAsync(studentDTO);
+
+        //var _validator_2 =await  _validator.ValidateAsync(studentDTO,options=> options.ThrowOnFailures());
 
         if (validator.IsValid)
         {
             _studentDTOs.Add(studentDTO);
-            return "Successfully Added";
+            return Ok("Successfully Added.");
         }
 
         else
         {
-           
-            return validator.Errors;
+
+            throw new Exception(validator.Errors.ToString());
         }
-
-
     }
 }
