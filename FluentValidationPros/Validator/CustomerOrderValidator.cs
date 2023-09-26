@@ -7,8 +7,6 @@ public class CustomerOrderValidator: AbstractValidator<CustomerOrder>
 {
     public CustomerOrderValidator()
     {
-
-
         RuleForEach(x => x.Orders).SetValidator(new OrderListValidator());
 
         //ChildRules
@@ -16,5 +14,8 @@ public class CustomerOrderValidator: AbstractValidator<CustomerOrder>
         {
             order.RuleFor(x=>x.Total).GreaterThan(0);
         });
+
+        // Where and Foreach Rules
+        RuleForEach(x => x.Orders).Where(x => x.Total != 0).SetValidator(new OrderListValidator());
     }
 }
