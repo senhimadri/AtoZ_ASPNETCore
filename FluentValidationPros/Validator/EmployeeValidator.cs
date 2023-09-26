@@ -7,6 +7,6 @@ public class EmployeeValidator:AbstractValidator<Employee>
 {
     public EmployeeValidator()
     {
-        RuleFor(emp => emp.Surname).NotNull().WithMessage("Please ensure you have entered your {PropertyName}. {PropertyValue}  .");
+        RuleFor(emp => emp.Surname).NotNull().WithMessage("Please ensure you have entered your {PropertyName}. {PropertyValue}.");
     }
 }
