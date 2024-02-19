@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTTPClient", "HTTPClient\HT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentValidationPros", "FluentValidationPros\FluentValidationPros.csproj", "{033ABD1C-2BA2-4D15-86DA-D94F84228570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeBenchmarking", "CodeBenchmarking\CodeBenchmarking.csproj", "{F85C75EB-CD85-4AE2-AD74-AD2D1EF7211D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeBenchmarking", "CodeBenchmarking\CodeBenchmarking.csproj", "{F85C75EB-CD85-4AE2-AD74-AD2D1EF7211D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkCoreDocumentation", "EntityFrameworkCoreDocumentation\EntityFrameworkCoreDocumentation.csproj", "{F3DC20E3-31F6-402E-B29B-57EEF81709C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{F85C75EB-CD85-4AE2-AD74-AD2D1EF7211D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F85C75EB-CD85-4AE2-AD74-AD2D1EF7211D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F85C75EB-CD85-4AE2-AD74-AD2D1EF7211D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3DC20E3-31F6-402E-B29B-57EEF81709C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3DC20E3-31F6-402E-B29B-57EEF81709C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3DC20E3-31F6-402E-B29B-57EEF81709C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3DC20E3-31F6-402E-B29B-57EEF81709C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
