@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using RedisImplementation.Data;
+using RedisImplementation.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddEntityFrameworkNpgsql()
     .AddDbContext<AppDBContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ICacheService, CacheService>();
 
 var app = builder.Build();
 

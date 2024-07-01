@@ -1,4 +1,5 @@
 ﻿using StackExchange.Redis;
+using System.Text.Json;
 
 namespace RedisImplementation.Services;
 
@@ -14,16 +15,27 @@ public class CacheService : ICacheService
     }
     public T GetData<T>(string Key)
     {
-        throw new NotImplementedException();
+        var value = _cacheDb.StringGet(Key);
+        if (!string.IsNullOrEmpty(value))
+            return JsonSerializer.Deserialize<T>(value)!;
+
+        return default!;
     }
 
-    public object RemoveDat(string Key)
+    public object RemoveData(string Key)
     {
-        throw new NotImplementedException();
+        var _exist = _cacheDb.KeyExists(Key);
+
+        if (_exist)
+            return _cacheDb.KeyDelete(Key);
+
+        return false;
     }
 
     public bool SetData<T>(string key, T value, DateTimeOffset expirationTime)
     {
-        throw new NotImplementedException();
+        var expiretime = expirationTime.DateTime.Subtract(DateTime.Now);
+
+        return _cacheDb.StringSet(key, JsonSerializer.Serialize(value), expiretime);
     }
 }
