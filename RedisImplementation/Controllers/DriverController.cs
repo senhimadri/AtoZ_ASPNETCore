@@ -56,9 +56,7 @@ public class DriverController : ControllerBase
         if (exit != null)
         {
             _context.Remove(exit);
-
             _cashServer.RemoveData($"driver{id}");
-
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -66,6 +64,4 @@ public class DriverController : ControllerBase
 
         return NotFound();  
     }
-
-
 }
