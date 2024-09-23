@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisImplementation", "Redi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestingExe", "UnitTestingExe\UnitTestingExe.csproj", "{4D7FE11D-156D-4B38-B43E-CDFA3BF9ABF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjectionCheck", "DependencyInjectionCheck\DependencyInjectionCheck.csproj", "{E8EBBE2B-16D8-4258-8886-E9A9F7F00C9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjectionCheck", "DependencyInjectionCheck\DependencyInjectionCheck.csproj", "{E8EBBE2B-16D8-4258-8886-E9A9F7F00C9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultPatternImplementation", "ResultPatternImplementation\ResultPatternImplementation.csproj", "{600D1F66-9DAB-4725-BA49-FE6F56E39607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{E8EBBE2B-16D8-4258-8886-E9A9F7F00C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8EBBE2B-16D8-4258-8886-E9A9F7F00C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8EBBE2B-16D8-4258-8886-E9A9F7F00C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{600D1F66-9DAB-4725-BA49-FE6F56E39607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600D1F66-9DAB-4725-BA49-FE6F56E39607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600D1F66-9DAB-4725-BA49-FE6F56E39607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600D1F66-9DAB-4725-BA49-FE6F56E39607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

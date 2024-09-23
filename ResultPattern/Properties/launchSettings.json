@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ResultPattern": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
