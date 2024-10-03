@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestingExe", "UnitTesti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjectionCheck", "DependencyInjectionCheck\DependencyInjectionCheck.csproj", "{E8EBBE2B-16D8-4258-8886-E9A9F7F00C9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResultPatternImplementation", "ResultPatternImplementation\ResultPatternImplementation.csproj", "{600D1F66-9DAB-4725-BA49-FE6F56E39607}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResultPatternImplementation", "ResultPatternImplementation\ResultPatternImplementation.csproj", "{600D1F66-9DAB-4725-BA49-FE6F56E39607}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomMiddleware", "..\..\CustomMiddleware\CustomMiddleware\CustomMiddleware.csproj", "{99A33400-13ED-44FF-AA50-DE67C3487D4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{600D1F66-9DAB-4725-BA49-FE6F56E39607}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{600D1F66-9DAB-4725-BA49-FE6F56E39607}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{600D1F66-9DAB-4725-BA49-FE6F56E39607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A33400-13ED-44FF-AA50-DE67C3487D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A33400-13ED-44FF-AA50-DE67C3487D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A33400-13ED-44FF-AA50-DE67C3487D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A33400-13ED-44FF-AA50-DE67C3487D4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
