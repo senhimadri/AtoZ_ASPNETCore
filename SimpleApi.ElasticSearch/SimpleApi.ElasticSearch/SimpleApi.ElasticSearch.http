@@ -1,6 +1,0 @@
-@SimpleApi.ElasticSearch_HostAddress = http://localhost:5139
-
-GET {{SimpleApi.ElasticSearch_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
