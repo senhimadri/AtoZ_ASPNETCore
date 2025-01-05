@@ -39,6 +39,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResultPatternImplementation
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomMiddleware", "..\..\CustomMiddleware\CustomMiddleware\CustomMiddleware.csproj", "{99A33400-13ED-44FF-AA50-DE67C3487D4D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleApi.ElasticSearch", "SimpleApi.ElasticSearch\SimpleApi.ElasticSearch.csproj", "{60422BF7-E67C-48A1-AE0A-26173ADE064A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{99A33400-13ED-44FF-AA50-DE67C3487D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99A33400-13ED-44FF-AA50-DE67C3487D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99A33400-13ED-44FF-AA50-DE67C3487D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60422BF7-E67C-48A1-AE0A-26173ADE064A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60422BF7-E67C-48A1-AE0A-26173ADE064A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60422BF7-E67C-48A1-AE0A-26173ADE064A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60422BF7-E67C-48A1-AE0A-26173ADE064A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
